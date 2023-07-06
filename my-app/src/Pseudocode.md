@@ -31,3 +31,25 @@
     -(POSSIBLE) buttons will show up to navigate between task organization pages
 
 ## END ##
+
+# Functional #
+
+handleInput()
+    -funtion to render users input
+    -adds user input to list
+
+storeData()
+    -function to hold data in local storage
+
+useState()
+    -function that changes page state based on the user input
+
+hardReset()
+    -function will reset task list completely onClick
+
+softReset()
+    -function will only delete certain items from task list onClick
+
+navigate()
+    -function to change page state between active, inactive, and completed tasks
+    (Maybe a NAV BAR???)
