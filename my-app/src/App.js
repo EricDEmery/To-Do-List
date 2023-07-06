@@ -9,10 +9,10 @@ export default function App() {
     return JSON.parse(localStorage.getItem("ToDo")) || [];
   }); //Checks local storage for items to render, returns a blank array if local storage is empty
   
-  const [status, setStatus] = useState(To-Do) // Will set task status
+  const [status, setStatus] = useState(tasks) // Will set task status
 
-  useEffect(() => { localStorage.setItem("ToDo", JSON.stringify(ToDo));
-}, [ToDo]); // Tells browser to update local storage when ToDo changes, makes items a string so they can be stored
+  useEffect(() => { localStorage.setItem("ToDo", JSON.stringify(tasks));
+}, [tasks]); // Tells browser to update local storage when ToDo changes, makes items a string so they can be stored
 
 return (
   <Input />
