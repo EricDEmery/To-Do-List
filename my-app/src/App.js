@@ -22,7 +22,7 @@ export default function App() {
 return (
   <>
   <Input setTasks = {setTasks}/>
-  <List tasks={tasks}/>
+  <List tasks={tasks} setTasks={setTasks}/>
   </>
 );
 }
