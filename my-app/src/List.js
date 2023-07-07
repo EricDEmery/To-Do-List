@@ -1,4 +1,3 @@
-// Import necessary dependencies
 import React from 'react';
 
 
