@@ -12,10 +12,10 @@ export default function App() {
   const handleCheckboxChange = (task) => {
     const updatedTasks = tasks.filter((t) => t !== task);
     setTasks(updatedTasks);
-  
+
     const updatedCompletedTasks = [...completedTasks, task];
     setCompletedTasks(updatedCompletedTasks);
-  
+
     localStorage.setItem('ToDo', JSON.stringify(updatedTasks));
     localStorage.setItem('CompletedTasks', JSON.stringify(updatedCompletedTasks));
   };
@@ -32,13 +32,12 @@ export default function App() {
     localStorage.setItem('ToDo', JSON.stringify(tasks));
   }, [tasks]);
 
-
   if (page === "To-Do") {
     return (
       <>
         <Navbar setPage={setPage} />
         <Input setTasks={setTasks} />
-        <List tasks={tasks} setTasks={setTasks} handleCheckboxChange={handleCheckboxChange} />
+        <List tasks={tasks} setTasks={setTasks} completedTasks={completedTasks} setCompletedTasks={setCompletedTasks} handleCheckboxChange={handleCheckboxChange} />
         <button type="button" onClick={handleClearTasks}>
           Clear Tasks
         </button>

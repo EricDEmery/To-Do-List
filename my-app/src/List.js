@@ -1,27 +1,21 @@
 import React from 'react';
 
-
-
-export default function List({ tasks, setTasks }) {
-  // Define handleCheckboxChange function
+export default function List({ tasks, setTasks, completedTasks, setCompletedTasks }) {
   const handleCheckboxChange = (task) => {
-    // Filters out the completed tasks
     const updatedTasks = tasks.filter((t) => t !== task);
-   
     setTasks(updatedTasks);
 
-    // Keeps track of existing completed tasks
-    const completedTasks = JSON.parse(localStorage.getItem('CompletedTasks')) || [];
-    // Moves tasks to completed in local storage once check box is clicked
-    localStorage.setItem('CompletedTasks', JSON.stringify([...completedTasks, task]));
+    const updatedCompletedTasks = [...completedTasks, task];
+    setCompletedTasks(updatedCompletedTasks);
+
+    localStorage.setItem('ToDo', JSON.stringify(updatedTasks));
+    localStorage.setItem('CompletedTasks', JSON.stringify(updatedCompletedTasks));
   };
 
   return (
     <div>
-      {/* Renders each task in the array */}
       {tasks.map((task, index) => (
         <div key={index}>
-          {/* checkbox for the list */}
           <input
             type="checkbox"
             onChange={() => handleCheckboxChange(task)}
