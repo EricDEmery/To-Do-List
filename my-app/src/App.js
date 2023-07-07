@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import Input from './Input';
 import List from './List';
 import Completed from './Completed';
+import Navbar from './Navbar';
 
 export default function App() {
+  const [page, setPage] = useState("To-Do");
   // Define state variables for tasks and completedTasks
   // Retrieve tasks from local storage, or initialize an empty array if not found
   const [tasks, setTasks] = useState(() => JSON.parse(localStorage.getItem('ToDo')) || []);
@@ -27,6 +29,16 @@ export default function App() {
     setCompletedTasks([...completedTasks, task]);
   };
 
+  const handleClearTasks = () => {
+    // Clear tasks state and completedTasks state
+    setTasks([]);
+    setCompletedTasks([]);
+
+    // Clear tasks and completedTasks from local storage
+    localStorage.removeItem('ToDo');
+    localStorage.removeItem('CompletedTasks');
+  };
+
   // Save tasks and completedTasks to local storage when they change
   useEffect(() => {
     // Save the tasks state array to local storage
@@ -35,15 +47,34 @@ export default function App() {
     localStorage.setItem('CompletedTasks', JSON.stringify(completedTasks));
   }, [tasks, completedTasks]);
 
-  // Render the components
-  return (
-    <>
-      {/* Render the Input component and pass the addTask function as a prop */}
-      <Input addTask={addTask} />
-      {/* Render the List component and pass the tasks and handleCheckboxChange function as props */}
-      <List tasks={tasks} handleCheckboxChange={handleCheckboxChange} />
-      {/* Render the Completed component and pass the completedTasks as a prop */}
-      <Completed completedTasks={completedTasks} />
-    </>
-  );
+
+  // return (
+  //   <>
+  //     <Input addTask={addTask} />
+  //     <List tasks={tasks} handleCheckboxChange={handleCheckboxChange} />
+  //     <Completed completedTasks={completedTasks} />
+  //   </>
+  // );
+  if (page === "To-Do") {
+    return (
+      <>
+      <Navbar setPage={setPage} />
+        <Input addTask={addTask} />
+        <List tasks={tasks} handleCheckboxChange={handleCheckboxChange} />
+        <button type="button" onClick={handleClearTasks}>
+        Clear Tasks
+      </button>
+      </>
+    );
+  } else if (page === "Completed") {
+    return (
+      <>
+        <Navbar setPage={setPage} />
+        <Completed completedTasks={completedTasks} />
+        <button type="button" onClick={handleClearTasks}>
+        Clear Tasks
+      </button>
+      </>
+    );
+}
 }

@@ -29,7 +29,7 @@ export default function Input({ tasks, setTasks }) {
           onChange={userInput}
           placeholder="Add a Task!"
         />
-        <button type="submit">Add</button>
+        <button type="submit">Add Task</button>
       </form>
     </div>
   );
