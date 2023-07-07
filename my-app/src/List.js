@@ -1,6 +1,7 @@
 import React from 'react';
 
 
+
 export default function List({ tasks, setTasks }) {
   // Define handleCheckboxChange function
   const handleCheckboxChange = (task) => {
@@ -14,7 +15,6 @@ export default function List({ tasks, setTasks }) {
     // Moves tasks to completed in local storage once check box is clicked
     localStorage.setItem('CompletedTasks', JSON.stringify([...completedTasks, task]));
   };
-
 
   return (
     <div>

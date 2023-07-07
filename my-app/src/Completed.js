@@ -1,6 +1,8 @@
 import React from 'react';
 
+
 export default function Completed({ completedTasks }) {
+  
   return (
     <div>
       <h1>Completed Tasks</h1>
