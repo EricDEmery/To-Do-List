@@ -43,7 +43,11 @@ export default function App() {
       <>
         <Navbar setPage={setPage} />
         <Input setTasks={setTasks} />
-        <List tasks={tasks} setTasks={setTasks} completedTasks={completedTasks} setCompletedTasks={setCompletedTasks} handleCheckboxChange={handleCheckboxChange} />
+        <List tasks={tasks} 
+        setTasks={setTasks} 
+        completedTasks={completedTasks} 
+        setCompletedTasks={setCompletedTasks} 
+        handleCheckboxChange={handleCheckboxChange} />
         <button type="button" onClick={handleClearTasks}>
           Clear Tasks
         </button>

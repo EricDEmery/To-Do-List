@@ -13,7 +13,7 @@ export default function Input({ tasks, setTasks }) {
     e.preventDefault();
 
     //checks if input is NOT empty and adds task to tasks array
-    if (inputValue.trim() !== '') {
+    if (inputValue.trim() !== '') { //.trim removes whitespace
       setTasks((prevTasks) => [...prevTasks, inputValue]);
 
       setInputValue('');

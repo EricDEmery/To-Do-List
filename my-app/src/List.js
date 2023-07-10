@@ -1,16 +1,17 @@
 import React from 'react';
 
-export default function List({ tasks, setTasks, completedTasks, setCompletedTasks }) {
-  const handleCheckboxChange = (task) => {
-    const updatedTasks = tasks.filter((t) => t !== task);
-    setTasks(updatedTasks);
+export default function List({ tasks, setTasks, completedTasks, setCompletedTasks, handleCheckboxChange }) {
 
-    const updatedCompletedTasks = [...completedTasks, task];
-    setCompletedTasks(updatedCompletedTasks);
+//   const handleCheckboxChange = (task) => {
+//     const updatedTasks = tasks.filter((t) => t !== task);
+//     setTasks(updatedTasks);
 
-    localStorage.setItem('ToDo', JSON.stringify(updatedTasks));
-    localStorage.setItem('CompletedTasks', JSON.stringify(updatedCompletedTasks));
-  };
+//     const updatedCompletedTasks = [...completedTasks, task];
+//     setCompletedTasks(updatedCompletedTasks);
+
+//     localStorage.setItem('ToDo', JSON.stringify(updatedTasks));
+//     localStorage.setItem('CompletedTasks', JSON.stringify(updatedCompletedTasks));
+ // };
 
   return (
     <div>
